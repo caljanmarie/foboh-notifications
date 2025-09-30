@@ -1,0 +1,27 @@
+{
+  "name": "foboh-notifications",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts",
+    "dev": "ts-node-dev src/index.ts"
+  },
+  "dependencies": {
+    "axios": "^1.12.2",
+    "express": "^5.1.0",
+    "express-list-endpoints": "^7.1.1",
+    "express-rate-limit": "^8.1.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.9.36",
+    "@types/express": "^5.0.3",
+    "@types/express-rate-limit": "^5.1.3",
+    "@types/node": "^24.5.2",
+    "@types/uuid": "^10.0.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.2"
+  }
+}
