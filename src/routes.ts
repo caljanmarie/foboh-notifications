@@ -38,12 +38,6 @@ router.use(limiter);
  *               channel:
  *                 type: string
  *                 enum: [email, webhook]
- *               template:
- *                 type: string
- *               variables:
- *                 type: object
- *               target:
- *                 type: string
  *     responses:
  *       200:
  *         description: Preferences updated successfully
@@ -51,6 +45,26 @@ router.use(limiter);
 router.post("/preferences/:userId", (req, res) => {
   db.setPreference(req.params.userId, req.body);
   res.json({ status: "ok" });
+});
+
+
+/** * @openapi
+ * /preferences/{userId}:
+ *   get:
+ *     summary: Get user preferences
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: User preferences
+ */
+router.get("/preferences/:userId", (req, res) => {
+  const prefs = db.getPreference(req.params.userId);
+  res.json(prefs);
 });
 
 /**
@@ -74,6 +88,8 @@ router.post("/preferences/:userId", (req, res) => {
  *                 type: string
  *               variables:
  *                 type: object
+ *               target:
+ *                 type: string
  *     responses:
  *       200:
  *         description: Notification enqueued
