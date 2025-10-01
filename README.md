@@ -33,11 +33,45 @@ Open your browser and navigate to:
 
 You can explore endpoints, send test requests, and see request/response schemas.
 Endpoints include:
-- > POST /api/preferences/:userId – update user preferences
-- >GET /api/preferences/:userId – get user preferences
+- POST /api/preferences/:userId (update user preferences)
+    - Sample Payload (email):
+        ```json 
+        {
+            "userId": "user1",
+            "channel": "webhook"
+        }
+        ```
+    - Sample Payload (webhook):
+        ```json 
+        {
+            "userId": "user2",
+            "channel": "webhook"
+        }
+        ```
+- > GET /api/preferences/:userId (get user preferences)
 - > POST /api/notifications – send a notification
-- > GET /api/notifications/:id – check notification status
-
+    - Sample Payload (email):
+        ```json 
+        {
+            "userId": "user1",
+            "channel": "email",
+            "templateId": "welcome",
+            "variables": { "name": "Jan" },
+            "target": "jan@example.com"
+        }
+        ```
+    - Sample Payload (webhook):
+        - Copy unique url for webhoook: https://webhook.site/ 
+        ```json 
+        {
+            "userId": "user2",
+            "channel": "webhook",
+            "templateId": "order",
+            "variables": { "orderId": "orderId1" },
+            "target": "{webhook unique url}"
+        }
+        ```
+- > GET /api/notifications/:id – check notification status     
 
 ### 3. Running Tests
 #### Unit & Integration Tests
