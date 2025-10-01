@@ -1,7 +1,7 @@
 import { Notification } from "../types";
 
 export class InMemoryDb {
-  private notifications = new Map<string, Notification>();
+  public notifications = new Map<string, Notification>();
   private preferences = new Map<string, Record<string, boolean>>();
 
   saveNotification(n: Notification) {

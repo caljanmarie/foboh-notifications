@@ -17,3 +17,5 @@ const port = 3000;
 app.listen(port, () => {
   console.log(`🚀 Notification service running on http://localhost:${port}`);  
 });
+
+export default app; // Export app for testing purposes

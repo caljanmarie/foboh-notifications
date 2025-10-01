@@ -23,10 +23,12 @@ export class NotificationService {
   }) {
     const prefs = this.db.getPreference(payload.userId);
     if (!prefs[payload.channel]) {
+      console.log("User has opted out of", payload.channel);
       return { status: "FAILED", reason: "User opted out" };
     }
 
     if (!this.rateLimit.check(payload.userId)) {
+      console.log("Rate limit exceeded for", payload.userId);
       return { status: "FAILED", reason: "Rate limited" };
     }
 
@@ -87,7 +89,7 @@ export class NotificationService {
       try {
         attempt++;
         if (item.channel === "email") {
-          await this.email.send(item.target, rendered);
+          await this.email.send(item.userId, rendered);
         } else {
           await this.webhook.send(item.target, rendered);
         }

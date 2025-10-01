@@ -9,7 +9,8 @@ const service = new NotificationService(db);
 
 const limiter = rateLimit({
   windowMs: 60 * 1000,
-  max: 50,
+  max: 50,  // limit each IP to 50 requests per windowMs
+  // max: 1000, // limit each IP to 1000 requests per windowMs for load testing -- IGNORE ---
 });
 
 router.use(limiter);
@@ -69,7 +70,7 @@ router.post("/preferences/:userId", (req, res) => {
  *               channel:
  *                 type: string
  *                 enum: [email, webhook]
- *               template:
+ *               templateId:
  *                 type: string
  *               variables:
  *                 type: object
