@@ -14,8 +14,8 @@ A small, scalable notification service prototype built in Node.js + TypeScript, 
 ## OpenAPI/Swagger documentation
 ### 1. Installation & Running the App
 #### Clone the repository
-> git clone https://github.com/caljanmarie/foboh-notifications.git
-> cd foboh-notifications
+- > git clone https://github.com/caljanmarie/foboh-notifications.git
+- > cd foboh-notifications
 #### Install dependencies
 > npm install
 #### Run in development
@@ -45,7 +45,7 @@ Endpoints include:
 ##### Load Testing with k6
 The service includes k6 scripts to simulate load and rate limiting behavior.
 k6 reports include latency, success/failure rate, and throughput metrics
-###### a) Load Test
+##### a) Load Test
 Simulates 1000 notifications over 1 minute to check performance and scalability:
 k6 run tests/load-test.js
 *Adjust rate limiter in routes.ts for higher test loads*
@@ -55,7 +55,7 @@ System can handle a sustained load of 1000 notifications/minute
 Measures request duration, throughput, and error rate
 Helps identify performance bottlenecks
 
-###### b) Rate Limit Test
+##### b) Rate Limit Test
 Simulates requests exceeding the API rate limit to ensure rate limiting is enforced:
 k6 run tests/rate-limit-test.js
 
