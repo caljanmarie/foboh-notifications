@@ -1,4 +1,5 @@
 export class EmailChannel {
+  // Simulate sending an email
   async send(target: string, content: string) {
     console.log(`📧 Email to ${target}: ${content}`);
     if (Math.random() < 0.1) {
