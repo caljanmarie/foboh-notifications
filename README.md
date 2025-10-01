@@ -14,7 +14,7 @@ A small, scalable notification service prototype built in Node.js + TypeScript, 
 ## OpenAPI/Swagger documentation
 ### 1. Installation & Running the App
 #### Clone the repository
-> git clone [<your-repo-url>](https://github.com/caljanmarie/foboh-notifications.git)
+> git clone https://github.com/caljanmarie/foboh-notifications.git
 > cd foboh-notifications
 #### Install dependencies
 > npm install
